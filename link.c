@@ -11,10 +11,12 @@ typedef struct dnode dNode;
 dNode *head;
 dNode *tail;
 dNode *pointer;
+dnode *temp;
+dnode*var;
 
 
 
-void insert(int);
+void insert(int);//to insert the value 
 int fetch(int);
 void display(void);
 int search(int);
@@ -63,12 +65,17 @@ void main()
 	}
 }
 void insert(int value) {
+    dnode *temp;
+dnode*var;
 	if(head == NULL) {
 		head = (dNode *)malloc(sizeof(dNode));
 		head->value = value;
         head->next = NULL;
+        head->previous=NULL;
 		tail = head;
 	} else {
+        
+        
 		tail->next = (dNode *)malloc(sizeof(dNode));
        tail->next->value = value;
        tail->next->next = NULL;
